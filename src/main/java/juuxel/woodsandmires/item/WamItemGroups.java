@@ -20,29 +20,18 @@ public final class WamItemGroups {
             entries.addAfter(Items.WARPED_BUTTON,
                 WamBlocks.PINE_LOG,
                 WamBlocks.AGED_PINE_LOG,
-                WamBlocks.PINE_SHRUB_LOG,
                 WamBlocks.PINE_WOOD,
                 WamBlocks.AGED_PINE_WOOD,
                 WamBlocks.STRIPPED_PINE_LOG,
                 WamBlocks.STRIPPED_PINE_WOOD,
                 WamBlocks.PINE_SNAG_LOG,
-                WamBlocks.PINE_SNAG_WOOD,
-                WamBlocks.PINE_PLANKS,
-                WamBlocks.PINE_STAIRS,
-                WamBlocks.PINE_SLAB,
-                WamBlocks.PINE_FENCE,
-                WamBlocks.PINE_FENCE_GATE,
-                WamBlocks.PINE_DOOR,
-                WamBlocks.PINE_TRAPDOOR,
-                WamBlocks.PINE_PRESSURE_PLATE,
-                WamBlocks.PINE_BUTTON
+                WamBlocks.PINE_SNAG_WOOD
             );
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> {
             entries.addAfter(Items.WARPED_STEM,
                 WamBlocks.PINE_LOG,
                 WamBlocks.AGED_PINE_LOG,
-                WamBlocks.PINE_SHRUB_LOG,
                 WamBlocks.PINE_SNAG_LOG);
             entries.addAfter(Items.FLOWERING_AZALEA_LEAVES,
                 WamBlocks.PINE_LEAVES);
@@ -55,16 +44,6 @@ public final class WamItemGroups {
                 WamBlocks.FIREWEED);
             entries.addBefore(Items.GLOW_LICHEN,
                 WamBlocks.FELL_LICHEN);
-        });
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries -> {
-            entries.addAfter(Items.WARPED_HANGING_SIGN,
-                WamBlocks.PINE_SIGN,
-                WamBlocks.PINE_HANGING_SIGN);
-        });
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {
-            entries.addAfter(Items.BAMBOO_CHEST_RAFT,
-                WamItems.PINE_BOAT,
-                WamItems.PINE_CHEST_BOAT);
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
             addBefore(entries, stack -> stack.isOf(Items.ENCHANTED_BOOK),

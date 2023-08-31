@@ -15,24 +15,12 @@ import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
+import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Consumer;
 
 public final class WamRecipeProvider extends FabricRecipeProvider {
-    public static final BlockFamily PINE_FAMILY = BlockFamilies.register(WamBlocks.PINE_PLANKS)
-        .button(WamBlocks.PINE_BUTTON)
-        .door(WamBlocks.PINE_DOOR)
-        .fence(WamBlocks.PINE_FENCE)
-        .fenceGate(WamBlocks.PINE_FENCE_GATE)
-        .pressurePlate(WamBlocks.PINE_PRESSURE_PLATE)
-        .sign(WamBlocks.PINE_SIGN, WamBlocks.PINE_WALL_SIGN.get())
-        .slab(WamBlocks.PINE_SLAB)
-        .stairs(WamBlocks.PINE_STAIRS)
-        .trapdoor(WamBlocks.PINE_TRAPDOOR)
-        .group("wooden")
-        .unlockCriterionName("has_planks")
-        .build();
 
     public WamRecipeProvider(FabricDataOutput output) {
         super(output);
@@ -41,20 +29,15 @@ public final class WamRecipeProvider extends FabricRecipeProvider {
     @Override
     public void generate(Consumer<RecipeJsonProvider> exporter) {
         // Wooden
-        generateFamily(exporter, PINE_FAMILY);
-        offerPlanksRecipe(exporter, WamBlocks.PINE_PLANKS, WamItemTags.THICK_PINE_LOGS, 4);
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WamBlocks.PINE_PLANKS, 2)
-            .input(WamBlocks.PINE_SHRUB_LOG)
-            .group("planks")
-            .criterion("has_log", conditionsFromItem(WamBlocks.PINE_SHRUB_LOG))
-            .offerTo(exporter, WoodsAndMires.id("pine_planks_from_shrub_log"));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Items.BIRCH_PLANKS, 4)
+            .input(WamItemTags.THICK_PINE_LOGS).group("planks").criterion("has_logs", conditionsFromTag(WamItemTags.THICK_PINE_LOGS))
+            .offerTo(exporter, new Identifier("terrestria", "pine__to_planks"));
+
         offerBarkBlockRecipe(exporter, WamBlocks.PINE_WOOD, WamBlocks.PINE_LOG);
         offerBarkBlockRecipe(exporter, WamBlocks.AGED_PINE_WOOD, WamBlocks.AGED_PINE_LOG);
         offerBarkBlockRecipe(exporter, WamBlocks.PINE_SNAG_WOOD, WamBlocks.PINE_SNAG_LOG);
         offerBarkBlockRecipe(exporter, WamBlocks.STRIPPED_PINE_WOOD, WamBlocks.STRIPPED_PINE_LOG);
-        offerBoatRecipe(exporter, WamItems.PINE_BOAT, WamBlocks.PINE_PLANKS);
-        offerChestBoatRecipe(exporter, WamItems.PINE_CHEST_BOAT, WamItems.PINE_BOAT);
-        offerHangingSignRecipe(exporter, WamBlocks.PINE_HANGING_SIGN, WamBlocks.STRIPPED_PINE_LOG);
 
         // Dyes
         offerShapelessRecipe(exporter, Items.MAGENTA_DYE, WamBlocks.FIREWEED, "magenta_dye", 2);

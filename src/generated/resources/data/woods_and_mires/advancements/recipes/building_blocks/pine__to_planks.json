@@ -1,13 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_planks": {
+    "has_logs": {
       "conditions": {
         "items": [
           {
-            "items": [
-              "woods_and_mires:pine_planks"
-            ]
+            "tag": "woods_and_mires:thick_pine_logs"
           }
         ]
       },
@@ -15,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "woods_and_mires:pine_slab"
+        "recipe": "terrestria:pine__to_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_planks",
+      "has_logs",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "woods_and_mires:pine_slab"
+      "terrestria:pine__to_planks"
     ]
   },
   "sends_telemetry_event": false

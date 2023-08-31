@@ -42,10 +42,10 @@ public class FallenLogFeature extends Feature<FallenLogFeatureConfig> {
                 }
 
                 Block block = i < mid ? config.mainLog() : config.agedLog();
-                BlockState state = block.getDefaultState().with(PillarBlock.AXIS, axis);
+                BlockState state = block.getDefaultState().withIfExists(PillarBlock.AXIS, axis);
 
                 if (i == mid) {
-                    state = state.with(AgedLogBlock.MID, true);
+                    state = state.withIfExists(AgedLogBlock.MID, true);
                 }
 
                 setBlockState(context.getWorld(), mut, state);
@@ -54,7 +54,7 @@ public class FallenLogFeature extends Feature<FallenLogFeatureConfig> {
             }
         } else {
             Block block = random.nextBoolean() ? config.mainLog() : config.agedLog();
-            BlockState state = block.getDefaultState().with(PillarBlock.AXIS, axis);
+            BlockState state = block.getDefaultState().withIfExists(PillarBlock.AXIS, axis);
 
             for (int i = 0; i < length; i++) {
                 if (!canPlace(context.getWorld(), mut)) {

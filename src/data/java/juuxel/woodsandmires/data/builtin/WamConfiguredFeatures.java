@@ -87,7 +87,7 @@ public final class WamConfiguredFeatures {
         );
         var thinPineShrub = register(WamConfiguredFeatureKeys.THIN_PINE_SHRUB, WamFeatures.SHRUB,
             new ShrubFeatureConfig(
-                WamBlocks.PINE_SHRUB_LOG.getDefaultState(),
+                WamBlocks.PINE_LOG.getDefaultState(),
                 WamBlocks.PINE_LEAVES.getDefaultState(),
                 1, 2, 0.8f
             )
@@ -129,7 +129,7 @@ public final class WamConfiguredFeatures {
                 new TwoLayersFeatureSize(2, 0, 2)
             )
                 .ignoreVines()
-                .decorators(List.of(new BranchTreeDecorator(WamBlocks.PINE_SNAG_BRANCH, 0.2f)))
+                .decorators(List.of(new BranchTreeDecorator(WamBlocks.PINE_SNAG_WOOD, 0.2f)))
                 .build()
         );
         register(WamConfiguredFeatureKeys.PLAINS_FLOWERS, Feature.SIMPLE_RANDOM_SELECTOR,

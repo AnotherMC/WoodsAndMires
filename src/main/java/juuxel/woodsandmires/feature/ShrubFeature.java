@@ -30,8 +30,8 @@ public class ShrubFeature extends Feature<ShrubFeatureConfig> {
         mut.set(pos);
 
         BlockState log = config.log;
-        BlockState logWithLeaves = log.getBlock() instanceof ShrubLogBlock ? log.with(ShrubLogBlock.HAS_LEAVES, true) : log;
-        BlockState leaves = config.leaves.with(LeavesBlock.DISTANCE, 1);
+        BlockState logWithLeaves = log.getBlock() instanceof ShrubLogBlock ? log.withIfExists(ShrubLogBlock.HAS_LEAVES, true) : log;
+        BlockState leaves = config.leaves.withIfExists(LeavesBlock.DISTANCE, 1);
         int extraHeight = random.nextFloat() < config.extraHeightChance ? random.nextInt(config.extraHeight + 1) : 0;
         int height = config.baseHeight + extraHeight;
 

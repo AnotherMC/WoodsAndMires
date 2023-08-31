@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "#woods_and_mires:thick_pine_logs",
-    "woods_and_mires:pine_shrub_log"
+    "#woods_and_mires:thick_pine_logs"
   ]
 }

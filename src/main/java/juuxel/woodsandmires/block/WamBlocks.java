@@ -36,21 +36,7 @@ import java.util.function.Supplier;
 public final class WamBlocks {
     public static final Block PINE_LOG = new PillarBlock(copyWoodSettings(Blocks.OAK_LOG));
     public static final Block AGED_PINE_LOG = new AgedLogBlock(PINE_LOG, AbstractBlock.Settings.copy(PINE_LOG));
-    public static final Block PINE_PLANKS = new Block(copyWoodSettings(Blocks.OAK_PLANKS));
-    public static final Block PINE_SLAB = new SlabBlock(copyWoodSettings(Blocks.OAK_SLAB));
-    public static final Block PINE_STAIRS = new StairsBlock(PINE_PLANKS.getDefaultState(), copyWoodSettings(Blocks.OAK_STAIRS));
-    public static final Block PINE_FENCE = new FenceBlock(copyWoodSettings(Blocks.OAK_FENCE));
-    public static final Block PINE_FENCE_GATE = new FenceGateBlock(copyWoodSettings(Blocks.OAK_FENCE_GATE), WamWoodTypes.PINE);
-    public static final Block PINE_DOOR = new DoorBlock(copyWoodSettings(Blocks.OAK_DOOR), WamBlockSetTypes.PINE);
-    public static final Block PINE_TRAPDOOR = new TrapdoorBlock(copyWoodSettings(Blocks.OAK_DOOR), WamBlockSetTypes.PINE);
-    public static final Block PINE_BUTTON = Blocks.createWoodenButtonBlock(WamBlockSetTypes.PINE);
-    public static final Block PINE_PRESSURE_PLATE = new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, copyWoodSettings(Blocks.OAK_PRESSURE_PLATE), WamBlockSetTypes.PINE);
-    public static final Block PINE_SIGN = new WamSignBlock(copyWoodSettings(Blocks.OAK_SIGN), WamWoodTypes.PINE);
-    // We have to evaluate this *after* PINE_SIGN has registered due to the loot table condition.
-    public static final Supplier<Block> PINE_WALL_SIGN = Suppliers.memoize(() -> new WamWallSignBlock(copyWoodSettings(PINE_SIGN).dropsLike(PINE_SIGN), WamWoodTypes.PINE));
-    public static final Block PINE_HANGING_SIGN = new WamHangingSignBlock(copyWoodSettings(Blocks.OAK_HANGING_SIGN), WamWoodTypes.PINE);
     // Supplier for same reason as above
-    public static final Supplier<Block> PINE_WALL_HANGING_SIGN = Suppliers.memoize(() -> new WamWallHangingSignBlock(copyWoodSettings(PINE_HANGING_SIGN).dropsLike(PINE_HANGING_SIGN), WamWoodTypes.PINE));
     public static final Block PINE_LEAVES = Blocks.createLeavesBlock(BlockSoundGroup.GRASS);
     public static final Block PINE_SAPLING = new SaplingBlock(new PineSaplingGenerator(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING));
     public static final Block POTTED_PINE_SAPLING = Blocks.createFlowerPotBlock(PINE_SAPLING);
@@ -60,8 +46,6 @@ public final class WamBlocks {
     public static final Block STRIPPED_PINE_WOOD = new PillarBlock(copyWoodSettings(Blocks.STRIPPED_OAK_WOOD));
     public static final Block PINE_SNAG_LOG = new PillarBlock(copyWoodSettings(Blocks.STRIPPED_OAK_LOG));
     public static final Block PINE_SNAG_WOOD = new PillarBlock(copyWoodSettings(Blocks.STRIPPED_OAK_WOOD));
-    public static final Block PINE_SNAG_BRANCH = new BranchBlock(copyWoodSettings(PINE_SNAG_WOOD));
-    public static final Block PINE_SHRUB_LOG = new ShrubLogBlock(copyWoodSettings(PINE_LOG).nonOpaque(), PINE_LEAVES);
     public static final Block FIREWEED = new TallFlowerBlock(createFlowerSettings());
     public static final Block TANSY = new BigFlowerBlock(StatusEffects.SLOW_FALLING, 10, createFlowerSettings());
     public static final Block POTTED_TANSY = Blocks.createFlowerPotBlock(TANSY);
@@ -76,19 +60,6 @@ public final class WamBlocks {
     public static void init() {
         register("pine_log", PINE_LOG);
         register("aged_pine_log", AGED_PINE_LOG);
-        register("pine_planks", PINE_PLANKS);
-        register("pine_slab", PINE_SLAB);
-        register("pine_stairs", PINE_STAIRS);
-        register("pine_fence", PINE_FENCE);
-        register("pine_fence_gate", PINE_FENCE_GATE);
-        register("pine_door", PINE_DOOR, new TallBlockItem(PINE_DOOR, new Item.Settings()));
-        register("pine_trapdoor", PINE_TRAPDOOR);
-        register("pine_button", PINE_BUTTON);
-        register("pine_pressure_plate", PINE_PRESSURE_PLATE);
-        register("pine_sign", PINE_SIGN, () -> new SignItem(new Item.Settings().maxCount(16), PINE_SIGN, PINE_WALL_SIGN.get()));
-        register("pine_wall_sign", PINE_WALL_SIGN.get(), (Item) null);
-        register("pine_hanging_sign", PINE_HANGING_SIGN, () -> new HangingSignItem(PINE_HANGING_SIGN, PINE_WALL_HANGING_SIGN.get(), new Item.Settings().maxCount(16)));
-        register("pine_wall_hanging_sign", PINE_WALL_HANGING_SIGN.get(), (Item) null);
         register("pine_leaves", PINE_LEAVES);
         register("pine_sapling", PINE_SAPLING);
         register("potted_pine_sapling", POTTED_PINE_SAPLING, (Item) null);
@@ -98,8 +69,6 @@ public final class WamBlocks {
         register("stripped_pine_wood", STRIPPED_PINE_WOOD);
         register("pine_snag_log", PINE_SNAG_LOG);
         register("pine_snag_wood", PINE_SNAG_WOOD);
-        register("pine_snag_branch", PINE_SNAG_BRANCH, (Item) null);
-        register("pine_shrub_log", PINE_SHRUB_LOG);
         register("fireweed", FIREWEED, new TallBlockItem(FIREWEED, new Item.Settings()));
         register("tansy", TANSY);
         register("potted_tansy", POTTED_TANSY, (Item) null);
@@ -117,18 +86,9 @@ public final class WamBlocks {
         fbr.add(STRIPPED_PINE_WOOD, 5, 5);
         fbr.add(PINE_SNAG_LOG, 5, 5);
         fbr.add(PINE_SNAG_WOOD, 5, 5);
-        fbr.add(PINE_SNAG_BRANCH, 5, 5);
-        fbr.add(PINE_SHRUB_LOG, 5, 5);
-        fbr.add(PINE_PLANKS, 5, 20);
-        fbr.add(PINE_SLAB, 5, 20);
-        fbr.add(PINE_STAIRS, 5, 20);
-        fbr.add(PINE_FENCE, 5, 20);
-        fbr.add(PINE_FENCE_GATE, 5, 20);
         fbr.add(PINE_LEAVES, 5, 20);
 
         FuelRegistry fr = FuelRegistry.INSTANCE;
-        fr.add(PINE_FENCE, 300);
-        fr.add(PINE_FENCE_GATE, 300);
 
         StrippableBlockRegistry.register(PINE_LOG, STRIPPED_PINE_LOG);
         StrippableBlockRegistry.register(AGED_PINE_LOG, STRIPPED_PINE_LOG);

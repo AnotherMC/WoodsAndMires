@@ -16,14 +16,11 @@ public final class WamBlocksClient {
     public static void init() {
         BlockRenderLayerMap.INSTANCE.putBlocks(
             RenderLayer.getCutoutMipped(),
-            PINE_LEAVES,
-            PINE_SHRUB_LOG
+            PINE_LEAVES
         );
 
         BlockRenderLayerMap.INSTANCE.putBlocks(
             RenderLayer.getCutout(),
-            PINE_DOOR,
-            PINE_TRAPDOOR,
             PINE_SAPLING,
             POTTED_PINE_SAPLING,
             FIREWEED,
@@ -43,7 +40,7 @@ public final class WamBlocksClient {
 
                 return FoliageColors.getColor(0.5, 1.0);
             },
-            FIREWEED, TANSY, POTTED_TANSY, PINE_LEAVES, PINE_SHRUB_LOG
+            FIREWEED, TANSY, POTTED_TANSY, PINE_LEAVES
         );
 
         ColorProviderRegistry.ITEM.register(
@@ -55,11 +52,5 @@ public final class WamBlocksClient {
             },
             FIREWEED, TANSY, PINE_LEAVES
         );
-
-        ParticleRenderEvents.ALLOW_BLOCK_DUST_TINT.register((state, world, pos) -> {
-            // Prevent tinting shrub log particles.
-            // See https://github.com/Juuxel/WoodsAndMires/issues/5
-            return !state.isOf(PINE_SHRUB_LOG);
-        });
     }
 }

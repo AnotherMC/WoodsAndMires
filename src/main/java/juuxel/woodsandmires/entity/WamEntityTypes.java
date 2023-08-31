@@ -10,9 +10,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 
 public final class WamEntityTypes {
-    public static final EntityType<BoatEntity> PINE_BOAT = register("pine_boat", createBoatType(false, WamBoat.PINE));
-    public static final EntityType<BoatEntity> PINE_CHEST_BOAT = register("pine_chest_boat", createBoatType(true, WamBoat.PINE));
-
     public static void init() {
     }
 

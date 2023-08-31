@@ -12,6 +12,6 @@ public class WamSignBlockEntity extends SignBlockEntity {
 
     @Override
     public BlockEntityType<?> getType() {
-        return WamBlockEntities.SIGN;
+        return null;
     }
 }

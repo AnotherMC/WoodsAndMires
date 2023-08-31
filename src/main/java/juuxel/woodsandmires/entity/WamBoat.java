@@ -11,14 +11,7 @@ import net.minecraft.util.Identifier;
 import java.util.function.Supplier;
 
 public enum WamBoat {
-    PINE(
-        "pine",
-        () -> WamBlocks.PINE_PLANKS,
-        () -> WamItems.PINE_BOAT,
-        () -> WamItems.PINE_CHEST_BOAT,
-        () -> WamEntityTypes.PINE_BOAT,
-        () -> WamEntityTypes.PINE_CHEST_BOAT
-    );
+   ;
 
     private final String name;
     private final Supplier<ItemConvertible> planks;

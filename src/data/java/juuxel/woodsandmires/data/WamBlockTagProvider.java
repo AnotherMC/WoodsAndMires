@@ -18,12 +18,6 @@ public final class WamBlockTagProvider extends FabricTagProvider.BlockTagProvide
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
         // Minecraft tags
-        getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
-            .add(WamBlocks.PINE_SNAG_BRANCH);
-        getOrCreateTagBuilder(BlockTags.CEILING_HANGING_SIGNS)
-            .add(WamBlocks.PINE_HANGING_SIGN);
-        getOrCreateTagBuilder(BlockTags.FENCE_GATES)
-            .add(WamBlocks.PINE_FENCE_GATE);
         getOrCreateTagBuilder(BlockTags.FLOWER_POTS)
             .add(WamBlocks.POTTED_PINE_SAPLING)
             .add(WamBlocks.POTTED_TANSY)
@@ -35,34 +29,12 @@ public final class WamBlockTagProvider extends FabricTagProvider.BlockTagProvide
             .addTag(WamBlockTags.PINE_LOGS);
         getOrCreateTagBuilder(BlockTags.MUSHROOM_GROW_BLOCK)
             .addTag(WamBlockTags.THICK_PINE_LOGS);
-        getOrCreateTagBuilder(BlockTags.PLANKS)
-            .add(WamBlocks.PINE_PLANKS);
         getOrCreateTagBuilder(BlockTags.SAPLINGS)
             .add(WamBlocks.PINE_SAPLING);
         getOrCreateTagBuilder(BlockTags.SMALL_FLOWERS)
             .add(WamBlocks.HEATHER, WamBlocks.TANSY);
-        getOrCreateTagBuilder(BlockTags.STANDING_SIGNS)
-            .add(WamBlocks.PINE_SIGN);
         getOrCreateTagBuilder(BlockTags.TALL_FLOWERS)
             .add(WamBlocks.FIREWEED);
-        getOrCreateTagBuilder(BlockTags.WALL_HANGING_SIGNS)
-            .add(WamBlocks.PINE_WALL_HANGING_SIGN.get());
-        getOrCreateTagBuilder(BlockTags.WALL_SIGNS)
-            .add(WamBlocks.PINE_WALL_SIGN.get());
-        getOrCreateTagBuilder(BlockTags.WOODEN_BUTTONS)
-            .add(WamBlocks.PINE_BUTTON);
-        getOrCreateTagBuilder(BlockTags.WOODEN_DOORS)
-            .add(WamBlocks.PINE_DOOR);
-        getOrCreateTagBuilder(BlockTags.WOODEN_FENCES)
-            .add(WamBlocks.PINE_FENCE);
-        getOrCreateTagBuilder(BlockTags.WOODEN_PRESSURE_PLATES)
-            .add(WamBlocks.PINE_PRESSURE_PLATE);
-        getOrCreateTagBuilder(BlockTags.WOODEN_SLABS)
-            .add(WamBlocks.PINE_SLAB);
-        getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS)
-            .add(WamBlocks.PINE_STAIRS);
-        getOrCreateTagBuilder(BlockTags.WOODEN_TRAPDOORS)
-            .add(WamBlocks.PINE_TRAPDOOR);
 
         // WaM tags
         getOrCreateTagBuilder(WamBlockTags.LICHEN_PLANTABLE_ON)
@@ -70,8 +42,7 @@ public final class WamBlockTagProvider extends FabricTagProvider.BlockTagProvide
             .add(Blocks.FARMLAND)
             .forceAddTag(BlockTags.BASE_STONE_OVERWORLD);
         getOrCreateTagBuilder(WamBlockTags.PINE_LOGS)
-            .addTag(WamBlockTags.THICK_PINE_LOGS)
-            .add(WamBlocks.PINE_SHRUB_LOG);
+            .addTag(WamBlockTags.THICK_PINE_LOGS);
         getOrCreateTagBuilder(WamBlockTags.THICK_PINE_LOGS)
             .add(WamBlocks.PINE_LOG, WamBlocks.AGED_PINE_LOG)
             .add(WamBlocks.PINE_WOOD, WamBlocks.AGED_PINE_WOOD)

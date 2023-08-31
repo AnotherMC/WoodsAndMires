@@ -4,7 +4,7 @@
     "decorators": [
       {
         "type": "woods_and_mires:branch",
-        "block": "woods_and_mires:pine_snag_branch",
+        "block": "woods_and_mires:pine_snag_wood",
         "chance": 0.2
       }
     ],

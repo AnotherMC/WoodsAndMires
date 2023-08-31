@@ -13,11 +13,9 @@
       }
     },
     "log": {
-      "Name": "woods_and_mires:pine_shrub_log",
+      "Name": "woods_and_mires:pine_log",
       "Properties": {
-        "axis": "y",
-        "has_leaves": "false",
-        "waterlogged": "false"
+        "axis": "y"
       }
     }
   }

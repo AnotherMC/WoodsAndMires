@@ -10,8 +10,6 @@ import net.minecraft.item.Items;
 import net.minecraft.registry.Registry;
 
 public final class WamItems {
-    public static final Item PINE_BOAT = register("pine_boat", new WamBoatItem(false, WamBoat.PINE, new Item.Settings()));
-    public static final Item PINE_CHEST_BOAT = register("pine_chest_boat", new WamBoatItem(true, WamBoat.PINE, new Item.Settings()));
     public static final Item PINE_CONE = register("pine_cone", new Item(new Item.Settings()));
     public static final Item PINE_CONE_JAM = register("pine_cone_jam", new FoodWithRemainderItem(
         new Item.Settings()

@@ -12,6 +12,6 @@ public class WamHangingSignBlockEntity extends HangingSignBlockEntity {
 
     @Override
     public BlockEntityType<?> getType() {
-        return WamBlockEntities.HANGING_SIGN;
+        return null;
     }
 }

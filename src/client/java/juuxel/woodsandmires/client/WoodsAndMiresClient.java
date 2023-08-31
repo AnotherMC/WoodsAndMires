@@ -19,8 +19,6 @@ public final class WoodsAndMiresClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         WamBlocksClient.init();
-        BlockEntityRendererFactories.register(WamBlockEntities.SIGN, SignBlockEntityRenderer::new);
-        BlockEntityRendererFactories.register(WamBlockEntities.HANGING_SIGN, HangingSignBlockEntityRenderer::new);
 
         for (WamBoat boat : WamBoat.values()) {
             registerBoatModel(true, boat);
