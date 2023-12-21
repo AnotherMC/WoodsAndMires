@@ -9,7 +9,7 @@ import net.minecraft.util.math.BlockPos;
 
 public class WamWallSignBlock extends WallSignBlock {
     public WamWallSignBlock(Settings settings, WoodType woodType) {
-        super(settings, woodType);
+        super(woodType, settings);
     }
 
     @Override

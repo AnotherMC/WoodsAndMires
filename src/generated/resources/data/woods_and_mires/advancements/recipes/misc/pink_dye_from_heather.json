@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_heather",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_heather"
     ]
   ],
   "rewards": {
     "recipes": [
       "woods_and_mires:pink_dye_from_heather"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -7,6 +7,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.ChestBlock;
 import net.minecraft.block.entity.LootableContainerBlockEntity;
 import net.minecraft.fluid.FluidState;
+import net.minecraft.inventory.LootableInventory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
@@ -55,7 +56,7 @@ public final class FrozenTreasureFeature extends Feature<FrozenTreasureFeatureCo
                         BlockState chest = Blocks.CHEST.getDefaultState()
                             .with(ChestBlock.FACING, Direction.Type.HORIZONTAL.random(random));
                         setBlockState(world, mut, chest);
-                        LootableContainerBlockEntity.setLootTable(world, random, mut, config.lootTable());
+                        LootableInventory.setLootTable(world, random, mut, config.lootTable());
                     } else if (FellPondFeature.isInsideEllipse(x, z, semiMajorSq, semiMinorSq, 0)) {
                         setBlockState(world, mut, config.ice().get(random, mut));
                     }

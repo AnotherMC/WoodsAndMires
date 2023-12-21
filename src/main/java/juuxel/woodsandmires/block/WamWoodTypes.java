@@ -1,7 +1,7 @@
 package juuxel.woodsandmires.block;
 
 import juuxel.woodsandmires.WoodsAndMires;
-import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeRegistry;
+import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeBuilder;
 import net.minecraft.block.BlockSetType;
 import net.minecraft.block.WoodType;
 
@@ -12,6 +12,6 @@ public final class WamWoodTypes {
     }
 
     private static WoodType register(String id, BlockSetType blockSetType) {
-        return WoodTypeRegistry.register(WoodsAndMires.id(id), blockSetType);
+        return new WoodTypeBuilder().register(WoodsAndMires.id(id), blockSetType);
     }
 }

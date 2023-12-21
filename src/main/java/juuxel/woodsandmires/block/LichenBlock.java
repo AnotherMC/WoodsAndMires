@@ -1,5 +1,6 @@
 package juuxel.woodsandmires.block;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.PlantBlock;
 import net.minecraft.block.ShapeContext;
@@ -13,6 +14,11 @@ public class LichenBlock extends PlantBlock {
 
     public LichenBlock(Settings settings) {
         super(settings);
+    }
+
+    @Override
+    protected MapCodec<? extends PlantBlock> getCodec() {
+        return null;
     }
 
     @Override

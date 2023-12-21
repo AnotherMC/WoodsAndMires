@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_fireweed",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_fireweed"
     ]
   ],
   "rewards": {
     "recipes": [
       "woods_and_mires:magenta_dye_from_fireweed"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

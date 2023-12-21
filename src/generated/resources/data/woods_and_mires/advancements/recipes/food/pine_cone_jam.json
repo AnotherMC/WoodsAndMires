@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_pine_cone",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_pine_cone"
     ]
   ],
   "rewards": {
     "recipes": [
       "woods_and_mires:pine_cone_jam"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

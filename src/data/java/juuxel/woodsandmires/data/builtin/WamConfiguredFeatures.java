@@ -306,7 +306,7 @@ public final class WamConfiguredFeatures {
             new MeadowFeatureConfig(
                 new WeightedBlockStateProvider(
                     DataPool.<BlockState>builder()
-                        .add(Blocks.GRASS.getDefaultState(), 5)
+                        .add(Blocks.SHORT_GRASS.getDefaultState(), 5)
                         .add(Blocks.FERN.getDefaultState(), 1)
                 ),
                 0.5f
@@ -320,7 +320,7 @@ public final class WamConfiguredFeatures {
     private void registerFells() {
         register(WamConfiguredFeatureKeys.FELL_VEGETATION, WamFeatures.MEADOW,
             new MeadowFeatureConfig(
-                BlockStateProvider.of(Blocks.GRASS),
+                BlockStateProvider.of(Blocks.SHORT_GRASS),
                 0.3f
             )
         );

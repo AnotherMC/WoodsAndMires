@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_tansy",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_tansy"
     ]
   ],
   "rewards": {
     "recipes": [
       "woods_and_mires:yellow_dye_from_tansy"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
