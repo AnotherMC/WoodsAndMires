@@ -56,8 +56,8 @@ public final class BranchTreeDecorator extends TreeDecorator {
             for (Direction side : Direction.Type.HORIZONTAL) {
                 if (random.nextFloat() < chance) {
                     BlockState state = block.getDefaultState()
-                        .with(BranchBlock.AXIS, side.getAxis())
-                        .with(BranchBlock.STYLE, random.nextBoolean() ? BranchBlock.Style.THICK : BranchBlock.Style.THIN);
+                        .withIfExists(BranchBlock.AXIS, side.getAxis())
+                        .withIfExists(BranchBlock.STYLE, random.nextBoolean() ? BranchBlock.Style.THICK : BranchBlock.Style.THIN);
 
                     mut.move(side);
                     if (generator.isAir(mut)) {

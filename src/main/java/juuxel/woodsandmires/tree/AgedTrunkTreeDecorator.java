@@ -61,7 +61,7 @@ public final class AgedTrunkTreeDecorator extends TreeDecorator {
                 continue;
             }
 
-            BlockState state = log.getDefaultState().with(AgedLogBlock.MID, pos.getY() == midY);
+            BlockState state = log.getDefaultState().withIfExists(AgedLogBlock.MID, pos.getY() == midY);
             generator.replace(pos, state);
         }
     }
