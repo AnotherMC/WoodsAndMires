@@ -84,13 +84,13 @@ public class ShrubLogBlock extends PillarBlock implements Waterloggable {
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        var stack = player.getStackInHand(hand);
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+        var stack = player.getStackInHand(Hand.MAIN_HAND);
         if (!state.get(HAS_LEAVES) && stack.isOf(leaves.asItem())) {
             if (!world.isClient()) {
                 world.setBlockState(pos, state.with(HAS_LEAVES, true));
-                var soundGroup = leaves.getSoundGroup(leaves.getDefaultState());
-                player.playSound(soundGroup.getPlaceSound(), SoundCategory.BLOCKS,
+                var soundGroup = leaves.getDefaultState().getSoundGroup();
+                player.playSoundToPlayer(soundGroup.getPlaceSound(), SoundCategory.BLOCKS,
                     (soundGroup.getVolume() + 1f) / 2f,
                     soundGroup.getPitch() * 0.8f);
                 return ActionResult.CONSUME;
@@ -99,7 +99,7 @@ public class ShrubLogBlock extends PillarBlock implements Waterloggable {
             return ActionResult.SUCCESS;
         }
 
-        return super.onUse(state, world, pos, player, hand, hit);
+        return super.onUse(state, world, pos, player, hit);
     }
 
     @Override

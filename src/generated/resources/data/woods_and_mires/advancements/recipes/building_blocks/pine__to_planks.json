@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "woods_and_mires:thick_pine_logs"
+            "items": "#woods_and_mires:thick_pine_logs"
           }
         ]
       },

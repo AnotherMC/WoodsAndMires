@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "woods_and_mires:fireweed"
-            ]
+            "items": "woods_and_mires:fireweed"
           }
         ]
       },

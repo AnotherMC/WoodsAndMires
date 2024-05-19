@@ -1,13 +1,14 @@
 package juuxel.woodsandmires.tree;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.world.gen.treedecorator.TreeDecorator;
 import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
 
 public final class ChanceTreeDecorator extends TreeDecorator {
-    public static final Codec<ChanceTreeDecorator> CODEC =
-        RecordCodecBuilder.create(builder ->
+    public static final MapCodec<ChanceTreeDecorator> CODEC =
+        RecordCodecBuilder.mapCodec(builder ->
             builder.group(
                 TreeDecorator.TYPE_CODEC.fieldOf("parent").forGetter(ChanceTreeDecorator::getParent),
                 Codec.doubleRange(0, 1).fieldOf("chance").forGetter(ChanceTreeDecorator::getChance)

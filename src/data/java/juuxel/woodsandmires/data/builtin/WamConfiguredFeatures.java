@@ -17,6 +17,7 @@ import juuxel.woodsandmires.tree.ReplaceTrunkTreeDecorator;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.loot.LootTable;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryEntryLookup;
 import net.minecraft.registry.RegistryKey;
@@ -315,7 +316,7 @@ public final class WamConfiguredFeatures {
     }
 
     // Fells
-    public static final Identifier FROZEN_TREASURE_LOOT_TABLE = WoodsAndMires.id("chests/frozen_treasure");
+    public static final RegistryKey<LootTable> FROZEN_TREASURE_LOOT_TABLE = RegistryKey.of(RegistryKeys.LOOT_TABLE, WoodsAndMires.id("chests/frozen_treasure"));
 
     private void registerFells() {
         register(WamConfiguredFeatureKeys.FELL_VEGETATION, WamFeatures.MEADOW,

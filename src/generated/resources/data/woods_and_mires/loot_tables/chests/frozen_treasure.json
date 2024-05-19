@@ -7,17 +7,17 @@
         {
           "type": "minecraft:tag",
           "expand": true,
-          "name": "c:iron_ingots"
+          "name": "c:ingots/iron"
         },
         {
           "type": "minecraft:tag",
           "expand": true,
-          "name": "c:gold_ingots"
+          "name": "c:ingots/gold"
         },
         {
           "type": "minecraft:tag",
           "expand": true,
-          "name": "c:copper_ingots"
+          "name": "c:ingots/copper"
         }
       ],
       "rolls": {
@@ -32,7 +32,7 @@
         {
           "type": "minecraft:tag",
           "expand": true,
-          "name": "c:emeralds"
+          "name": "c:gems/emerald"
         },
         {
           "type": "minecraft:item",

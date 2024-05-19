@@ -3,26 +3,31 @@ package juuxel.woodsandmires.data;
 import juuxel.woodsandmires.data.builtin.WamConfiguredFeatures;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.SimpleFabricLootTableProvider;
-import net.fabricmc.fabric.api.tag.convention.v1.ConventionalItemTags;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
+import net.minecraft.loot.context.LootContextType;
 import net.minecraft.loot.context.LootContextTypes;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.entry.TagEntry;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.Identifier;
 
+import java.util.concurrent.CompletableFuture;
 import java.util.function.BiConsumer;
 
 public final class WamChestLootTableProvider extends SimpleFabricLootTableProvider {
-    public WamChestLootTableProvider(FabricDataOutput output) {
-        super(output, LootContextTypes.CHEST);
+
+    public WamChestLootTableProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+        super(output, registryLookup, LootContextTypes.CHEST);
     }
 
     @Override
-    public void accept(BiConsumer<Identifier, LootTable.Builder> sink) {
+    public void accept(RegistryWrapper.WrapperLookup registryLookup, BiConsumer<RegistryKey<LootTable>, LootTable.Builder> sink) {
         sink.accept(WamConfiguredFeatures.FROZEN_TREASURE_LOOT_TABLE,
             new LootTable.Builder()
                 .pool(
@@ -35,7 +40,7 @@ public final class WamChestLootTableProvider extends SimpleFabricLootTableProvid
                 .pool(
                     LootPool.builder()
                         .rolls(UniformLootNumberProvider.create(1, 2))
-                        .with(TagEntry.expandBuilder(ConventionalItemTags.EMERALDS))
+                        .with(TagEntry.expandBuilder(ConventionalItemTags.EMERALD_GEMS))
                         .with(ItemEntry.builder(Items.NAME_TAG))
                 )
                 .pool(

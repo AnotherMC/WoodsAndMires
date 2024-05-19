@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "woods_and_mires:pine_snag_log"
-            ]
+            "items": "woods_and_mires:pine_snag_log"
           }
         ]
       },

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "woods_and_mires:aged_pine_log"
-            ]
+            "items": "woods_and_mires:aged_pine_log"
           }
         ]
       },

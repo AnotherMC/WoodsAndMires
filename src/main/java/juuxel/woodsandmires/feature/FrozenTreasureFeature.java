@@ -8,6 +8,8 @@ import net.minecraft.block.ChestBlock;
 import net.minecraft.block.entity.LootableContainerBlockEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.inventory.LootableInventory;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;

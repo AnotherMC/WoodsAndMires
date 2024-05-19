@@ -1,6 +1,7 @@
 package juuxel.woodsandmires.tree;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import juuxel.woodsandmires.block.BranchBlock;
 import net.minecraft.block.Block;
@@ -14,7 +15,7 @@ import net.minecraft.world.gen.treedecorator.TreeDecorator;
 import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
 
 public final class BranchTreeDecorator extends TreeDecorator {
-    public static final Codec<BranchTreeDecorator> CODEC = RecordCodecBuilder.create(
+    public static final MapCodec<BranchTreeDecorator> CODEC = RecordCodecBuilder.mapCodec(
         instance -> instance.group(
             Registries.BLOCK.getCodec().fieldOf("block").forGetter(BranchTreeDecorator::getBlock),
             Codec.FLOAT.fieldOf("chance").forGetter(BranchTreeDecorator::getChance)

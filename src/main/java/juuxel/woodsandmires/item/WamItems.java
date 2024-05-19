@@ -3,7 +3,7 @@ package juuxel.woodsandmires.item;
 import juuxel.woodsandmires.WoodsAndMires;
 import juuxel.woodsandmires.entity.WamBoat;
 import net.minecraft.block.DispenserBlock;
-import net.minecraft.item.FoodComponent;
+import net.minecraft.component.type.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.item.Items;
@@ -14,7 +14,7 @@ public final class WamItems {
     public static final Item PINE_CONE_JAM = register("pine_cone_jam", new FoodWithRemainderItem(
         new Item.Settings()
             .recipeRemainder(Items.GLASS_BOTTLE)
-            .food(new FoodComponent.Builder().hunger(3).saturationModifier(0.25f).build())
+            .food(new FoodComponent.Builder().nutrition(3).saturationModifier(0.25f).build())
     ));
 
     public static void init() {

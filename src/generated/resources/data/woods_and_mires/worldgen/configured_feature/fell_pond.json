@@ -27,10 +27,8 @@
     "bottom_replace_chance": 0.08,
     "depth": {
       "type": "minecraft:uniform",
-      "value": {
-        "max_inclusive": 4,
-        "min_inclusive": 1
-      }
+      "max_inclusive": 4,
+      "min_inclusive": 1
     },
     "fill_block": {
       "type": "minecraft:simple_state_provider",
@@ -43,10 +41,8 @@
     },
     "radius": {
       "type": "minecraft:uniform",
-      "value": {
-        "max_inclusive": 5,
-        "min_inclusive": 2
-      }
+      "max_inclusive": 5,
+      "min_inclusive": 2
     }
   }
 }

@@ -50,7 +50,7 @@ public final class WamDev {
         try {
             BlockPos pos = context.getSource().getPlayer().getBlockPos();
             JsonElement json = BlockPos.CODEC.encodeStart(JsonOps.INSTANCE, pos)
-                .getOrThrow(false, error -> {});
+                .getOrThrow();
             Files.writeString(marked, GSON.toJson(json));
             context.getSource().sendFeedback(() -> Text.literal("Marked " + pos.toShortString()).formatted(Formatting.GREEN), false);
         } catch (Exception e) {
@@ -68,7 +68,7 @@ public final class WamDev {
 
             JsonElement json = GSON.fromJson(Files.readString(marked), JsonElement.class);
             BlockPos pos = BlockPos.CODEC.decode(JsonOps.INSTANCE, json)
-                .getOrThrow(false, error -> {})
+                .getOrThrow()
                 .getFirst();
             context.getSource().sendFeedback(() -> Text.literal("Recalling " + pos.toShortString()).formatted(Formatting.GREEN), false);
             context.getSource().getPlayer().teleport(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);

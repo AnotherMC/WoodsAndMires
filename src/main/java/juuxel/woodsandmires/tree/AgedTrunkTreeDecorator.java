@@ -1,6 +1,7 @@
 package juuxel.woodsandmires.tree;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import it.unimi.dsi.fastutil.ints.IntRBTreeSet;
 import it.unimi.dsi.fastutil.ints.IntSortedSet;
@@ -16,7 +17,7 @@ import net.minecraft.world.gen.treedecorator.TreeDecorator;
 import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
 
 public final class AgedTrunkTreeDecorator extends TreeDecorator {
-    public static final Codec<AgedTrunkTreeDecorator> CODEC = RecordCodecBuilder.create(
+    public static final MapCodec<AgedTrunkTreeDecorator> CODEC = RecordCodecBuilder.mapCodec(
         instance -> instance.group(
             Registries.BLOCK.getCodec().fieldOf("log").forGetter(AgedTrunkTreeDecorator::getLog),
             FloatProvider.createValidatedCodec(0, 1).fieldOf("aged_height_fraction")

@@ -4,6 +4,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.FlowerBlock;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.shape.VoxelShape;
@@ -12,7 +13,7 @@ import net.minecraft.world.BlockView;
 public class HeatherBlock extends FlowerBlock {
     private static final VoxelShape SHAPE = createCuboidShape(1, 0, 1, 15, 11, 15);
 
-    public HeatherBlock(StatusEffect suspiciousStewEffect, int effectDuration, Settings settings) {
+    public HeatherBlock(RegistryEntry<StatusEffect> suspiciousStewEffect, int effectDuration, Settings settings) {
         super(suspiciousStewEffect, effectDuration, settings);
     }
 

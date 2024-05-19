@@ -1,6 +1,7 @@
 package juuxel.woodsandmires.tree;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.gen.feature.Feature;
@@ -9,8 +10,8 @@ import net.minecraft.world.gen.treedecorator.TreeDecorator;
 import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
 
 public final class ReplaceTrunkTreeDecorator extends TreeDecorator {
-    public static final Codec<ReplaceTrunkTreeDecorator> CODEC =
-        RecordCodecBuilder.create(builder ->
+    public static final MapCodec<ReplaceTrunkTreeDecorator> CODEC =
+        RecordCodecBuilder.mapCodec(builder ->
             builder.group(
                 BlockStateProvider.TYPE_CODEC.fieldOf("trunk").forGetter(ReplaceTrunkTreeDecorator::getTrunk)
             ).apply(builder, ReplaceTrunkTreeDecorator::new)
