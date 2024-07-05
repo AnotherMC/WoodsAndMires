@@ -20,7 +20,7 @@ public final class WoodsAndMires implements ModInitializer {
     public static final String ID = "woods_and_mires";
 
     public static Identifier id(String path) {
-        return new Identifier(ID, path);
+        return Identifier.of(ID, path);
     }
 
     @Override

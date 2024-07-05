@@ -30,7 +30,7 @@ public final class WamBlockLootTableProvider extends FabricBlockLootTableProvide
         addDrop(WamBlocks.PINE_LEAVES,
             block -> leavesDrops(block, WamBlocks.PINE_SAPLING, SAPLING_DROP_CHANCE)
                 .pool(addSurvivesExplosionCondition(WamItems.PINE_CONE, LootPool.builder()
-                    .conditionally(WITHOUT_SILK_TOUCH_NOR_SHEARS)
+                    .conditionally(createWithoutShearsOrSilkTouchCondition())
                     .with(ItemEntry.builder(WamItems.PINE_CONE)
                         .apply(SetCountLootFunction.builder(BinomialLootNumberProvider.create(3, 0.04f)))
                     )

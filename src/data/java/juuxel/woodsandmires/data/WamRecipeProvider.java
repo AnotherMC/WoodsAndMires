@@ -35,7 +35,7 @@ public final class WamRecipeProvider extends FabricRecipeProvider {
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Items.BIRCH_PLANKS, 4)
             .input(WamItemTags.THICK_PINE_LOGS).group("planks").criterion("has_logs", conditionsFromTag(WamItemTags.THICK_PINE_LOGS))
-            .offerTo(exporter, new Identifier("terrestria", "pine__to_planks"));
+            .offerTo(exporter, Identifier.of("terrestria", "pine__to_planks"));
 
         offerBarkBlockRecipe(exporter, WamBlocks.PINE_WOOD, WamBlocks.PINE_LOG);
         offerBarkBlockRecipe(exporter, WamBlocks.AGED_PINE_WOOD, WamBlocks.AGED_PINE_LOG);

@@ -15,6 +15,6 @@ public final class CommonItemTags {
     public static final TagKey<Item> WOODEN_RODS = of("wooden_rods");
 
     private static TagKey<Item> of(String path) {
-        return TagKey.of(RegistryKeys.ITEM, new Identifier("c", path));
+        return TagKey.of(RegistryKeys.ITEM, Identifier.of("c", path));
     }
 }

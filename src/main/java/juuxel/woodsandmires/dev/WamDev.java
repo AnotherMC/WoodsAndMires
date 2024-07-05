@@ -71,7 +71,7 @@ public final class WamDev {
                 .getOrThrow()
                 .getFirst();
             context.getSource().sendFeedback(() -> Text.literal("Recalling " + pos.toShortString()).formatted(Formatting.GREEN), false);
-            context.getSource().getPlayer().teleport(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
+            context.getSource().getPlayer().teleport(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, true);
         } catch (CommandSyntaxException e) {
             throw e;
         } catch (Exception e) {

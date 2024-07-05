@@ -27,7 +27,7 @@ public final class WamChestLootTableProvider extends SimpleFabricLootTableProvid
     }
 
     @Override
-    public void accept(RegistryWrapper.WrapperLookup registryLookup, BiConsumer<RegistryKey<LootTable>, LootTable.Builder> sink) {
+    public void accept(BiConsumer<RegistryKey<LootTable>, LootTable.Builder> sink) {
         sink.accept(WamConfiguredFeatures.FROZEN_TREASURE_LOOT_TABLE,
             new LootTable.Builder()
                 .pool(

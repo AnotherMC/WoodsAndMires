@@ -16,7 +16,7 @@ public final class WamBoatEntityRenderer extends BoatEntityRenderer {
     public WamBoatEntityRenderer(EntityRendererFactory.Context context, boolean chest, WamBoat boatData) {
         super(context, chest);
         var id = boatData.id();
-        var texture = new Identifier(id.getNamespace(), "textures/entity/" + (chest ? "chest_boat/" : "boat/") + id.getPath() + ".png");
+        var texture = Identifier.of(id.getNamespace(), "textures/entity/" + (chest ? "chest_boat/" : "boat/") + id.getPath() + ".png");
         var rootPart = context.getPart(getModelLayer(boatData, chest));
         var model = chest ? new ChestBoatEntityModel(rootPart) : new BoatEntityModel(rootPart);
         texturesAndModels = texturesAndModels.entrySet()
@@ -26,6 +26,6 @@ public final class WamBoatEntityRenderer extends BoatEntityRenderer {
 
     public static EntityModelLayer getModelLayer(WamBoat boat, boolean chest) {
         var id = boat.id();
-        return new EntityModelLayer(new Identifier(id.getNamespace(), (chest ? "chest_boat/" : "boat/") + id.getPath()), "main");
+        return new EntityModelLayer(Identifier.of(id.getNamespace(), (chest ? "chest_boat/" : "boat/") + id.getPath()), "main");
     }
 }

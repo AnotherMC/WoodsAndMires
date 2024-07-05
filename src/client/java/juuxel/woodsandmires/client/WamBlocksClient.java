@@ -1,12 +1,10 @@
 package juuxel.woodsandmires.client;
 
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.client.particle.v1.ParticleRenderEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.color.world.BiomeColors;
-import net.minecraft.client.color.world.FoliageColors;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.BlockItem;
 
@@ -30,17 +28,6 @@ public final class WamBlocksClient {
             POTTED_FELL_LICHEN,
             HEATHER,
             POTTED_HEATHER
-        );
-
-        ColorProviderRegistry.BLOCK.register(
-            (state, world, pos, tintIndex) -> {
-                if (world != null && pos != null) {
-                    return BiomeColors.getFoliageColor(world, pos);
-                }
-
-                return FoliageColors.getColor(0.5, 1.0);
-            },
-            FIREWEED, TANSY, POTTED_TANSY, PINE_LEAVES
         );
 
         ColorProviderRegistry.ITEM.register(
