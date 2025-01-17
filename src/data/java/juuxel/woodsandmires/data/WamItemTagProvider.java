@@ -31,7 +31,7 @@ public final class WamItemTagProvider extends FabricTagProvider.ItemTagProvider 
             .add(WamBlocks.PINE_SAPLING);
         builder(ItemTags.SMALL_FLOWERS)
             .add(WamBlocks.HEATHER, WamBlocks.TANSY);
-        builder(ItemTags.TALL_FLOWERS)
+        builder(ItemTags.BEE_FOOD)
             .add(WamBlocks.FIREWEED);
 
         // WaM tags

@@ -33,7 +33,7 @@ public final class WamBlockTagProvider extends FabricTagProvider.BlockTagProvide
             .add(WamBlocks.PINE_SAPLING);
         getOrCreateTagBuilder(BlockTags.SMALL_FLOWERS)
             .add(WamBlocks.HEATHER, WamBlocks.TANSY);
-        getOrCreateTagBuilder(BlockTags.TALL_FLOWERS)
+        getOrCreateTagBuilder(BlockTags.BEE_ATTRACTIVE)
             .add(WamBlocks.FIREWEED);
 
         // WaM tags

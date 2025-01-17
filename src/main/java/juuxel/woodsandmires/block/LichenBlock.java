@@ -28,7 +28,7 @@ public class LichenBlock extends PlantBlock {
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        Vec3d vec3d = state.getModelOffset(world, pos);
+        Vec3d vec3d = state.getModelOffset( pos);
         return SHAPE.offset(vec3d.x, vec3d.y, vec3d.z);
     }
 }

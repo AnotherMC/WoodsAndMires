@@ -53,9 +53,10 @@ public enum WamBoat {
     }
 
     public EntityType.EntityFactory<BoatEntity> factory(boolean chest) {
-        return (type, world) -> chest
-            ? new WamChestBoatEntity(type, world, this)
-            : new WamBoatEntity(type, world, this);
+        //return (type, world) -> chest
+        //    ? new WamChestBoatEntity(type, world, this)
+        //    : new WamBoatEntity(type, world, this);
+        return null;
     }
 
     public Identifier id() {

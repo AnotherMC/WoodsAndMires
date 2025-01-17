@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.6.+'
+    id 'fabric-loom' version '1.8.+'
     id 'maven-publish'
 }
 
@@ -49,6 +49,7 @@ repositories {
     maven {
         url = "https://maven.minecraftforge.net"
     }
+    maven { url 'https://maven.nucleoid.xyz' }
 
     maven {
         url = "https://maven.terraformersmc.com/releases/"
@@ -69,6 +70,9 @@ dependencies {
 
     modImplementation "com.github.glitchfiend:TerraBlender-fabric:$project.terrablender_version"
     implementation include("com.typesafe:config:$project.typesafe_config_version")
+
+    modImplementation 'eu.pb4:polymer-resource-pack:0.11.3+1.21.4'
+    modImplementation 'eu.pb4:polymer-resource-pack-extras:0.11.3+1.21.4'
 
     dataImplementation sourceSets.main.output
     // Used for sorting features in the data generator

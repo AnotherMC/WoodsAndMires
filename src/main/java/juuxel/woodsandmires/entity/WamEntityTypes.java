@@ -18,9 +18,9 @@ public final class WamEntityTypes {
     }
 
     private static EntityType<BoatEntity> createBoatType(boolean chest, WamBoat boat) {
-        return FabricEntityTypeBuilder.create(SpawnGroup.MISC, boat.factory(chest))
+        return null;/*FabricEntityTypeBuilder.create(SpawnGroup.MISC, boat.factory(chest))
             .dimensions(EntityDimensions.changing(1.375f, 0.5625f))
             .trackRangeChunks(10)
-            .build();
+            .build();*/
     }
 }

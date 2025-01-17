@@ -22,6 +22,7 @@ public final class WamDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(WamBlockTagProvider::new);
         pack.addProvider(WamItemTagProvider::new);
         pack.addProvider(WamRecipeProvider::new);
+        pack.addProvider(WamItemModelProvider::new);
     }
 
     @Override

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "terrestria:pine__to_planks"
+        "recipe": "terrestria:pine_to_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "terrestria:pine__to_planks"
+      "terrestria:pine_to_planks"
     ]
   }
 }

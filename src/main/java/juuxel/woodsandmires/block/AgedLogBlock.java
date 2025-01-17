@@ -8,17 +8,9 @@ import net.minecraft.state.property.BooleanProperty;
 
 public class AgedLogBlock extends PillarBlock {
     public static final BooleanProperty MID = BooleanProperty.of("mid");
-    private final Block main;
-
     public AgedLogBlock(Block main, Settings settings) {
-        super(settings);
-        this.main = main;
+        super(settings.overrideTranslationKey(main.getTranslationKey()));
         setDefaultState(getDefaultState().with(MID, false));
-    }
-
-    @Override
-    public String getTranslationKey() {
-        return main.getTranslationKey();
     }
 
     @Override

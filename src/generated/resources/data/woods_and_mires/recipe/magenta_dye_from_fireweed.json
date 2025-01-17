@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "magenta_dye",
   "ingredients": [
-    {
-      "item": "woods_and_mires:fireweed"
-    }
+    "woods_and_mires:fireweed"
   ],
   "result": {
     "count": 2,

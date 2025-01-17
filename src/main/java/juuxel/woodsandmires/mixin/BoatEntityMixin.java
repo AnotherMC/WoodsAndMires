@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.Slice;
 
 @Mixin(BoatEntity.class)
 abstract class BoatEntityMixin {
-    @ModifyArg(
+    /*@ModifyArg(
         method = "fall",
         at = @At(
             value = "INVOKE",
@@ -29,5 +29,5 @@ abstract class BoatEntityMixin {
         }
 
         return convertible;
-    }
+    }*/
 }

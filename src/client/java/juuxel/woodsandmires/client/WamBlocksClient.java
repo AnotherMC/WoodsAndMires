@@ -30,7 +30,7 @@ public final class WamBlocksClient {
             POTTED_HEATHER
         );
 
-        ColorProviderRegistry.ITEM.register(
+        /*ColorProviderRegistry.ITEM.register(
             (stack, tintIndex) -> {
                 if (tintIndex > 0) return -1;
 
@@ -38,6 +38,6 @@ public final class WamBlocksClient {
                 return colors.getColor(((BlockItem) stack.getItem()).getBlock().getDefaultState(), null, null, tintIndex);
             },
             FIREWEED, TANSY, PINE_LEAVES
-        );
+        );*/
     }
 }

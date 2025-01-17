@@ -10,7 +10,7 @@ public final class WamChestBoatEntity extends ChestBoatEntity implements BoatWit
     private final WamBoat boatData;
 
     public WamChestBoatEntity(EntityType<? extends BoatEntity> entityType, World world, WamBoat boatData) {
-        super(entityType, world);
+        super(null, world, () -> boatData.chestBoat().asItem());
         this.boatData = boatData;
     }
 
@@ -19,17 +19,4 @@ public final class WamChestBoatEntity extends ChestBoatEntity implements BoatWit
         return boatData;
     }
 
-    @Override
-    public Type getVariant() {
-        return Type.OAK;
-    }
-
-    @Override
-    public void setVariant(Type type) {
-    }
-
-    @Override
-    public Item asItem() {
-        return boatData.chestBoat().asItem();
-    }
 }

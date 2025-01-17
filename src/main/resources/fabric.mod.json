@@ -21,7 +21,6 @@
       "juuxel.woodsandmires.WoodsAndMires"
     ],
     "client": [
-      "juuxel.woodsandmires.client.WoodsAndMiresClient"
     ],
     "terrablender": [
       "juuxel.woodsandmires.terrablender.WoodsAndMiresTb"
@@ -35,8 +34,8 @@
   "depends": {
     "fabricloader": ">=0.14.21",
     "fabric": ">=0.86.0",
-    "fabric-biome-api-v1": "^13.0.0",
-    "minecraft": "~1.21"
+    "fabric-biome-api-v1": ">=13.0.0",
+    "minecraft": ">=1.21.4"
   },
   "recommends": {
     "terrablender": ">=3.0"

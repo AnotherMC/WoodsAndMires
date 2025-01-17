@@ -4,68 +4,51 @@ import com.google.common.base.Suppliers;
 import juuxel.woodsandmires.WoodsAndMires;
 import juuxel.woodsandmires.feature.WamConfiguredFeatureKeys;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
-import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
-import net.minecraft.item.HangingSignItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.SignItem;
 import net.minecraft.item.TallBlockItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.BlockSoundGroup;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
+import java.util.function.BiFunction;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 public final class WamBlocks {
-    public static final Block PINE_LOG = new PillarBlock(copyWoodSettings(Blocks.OAK_LOG));
-    public static final Block AGED_PINE_LOG = new AgedLogBlock(PINE_LOG, AbstractBlock.Settings.copy(PINE_LOG));
+    public static final Block PINE_LOG = register("pine_log", copyWoodSettings(Blocks.OAK_LOG), PillarBlock::new);
+    public static final Block AGED_PINE_LOG = register("aged_pine_log", AbstractBlock.Settings.copy(PINE_LOG), s -> new AgedLogBlock(PINE_LOG, s));
     // Supplier for same reason as above
-    public static final Block PINE_LEAVES = Blocks.createLeavesBlock(BlockSoundGroup.GRASS);
-    public static final Block PINE_SAPLING = new SaplingBlock(new SaplingGenerator("pine", Optional.empty(), Optional.of(WamConfiguredFeatureKeys.PINE_FROM_SAPLING), Optional.empty()), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING));
-    public static final Block POTTED_PINE_SAPLING = Blocks.createFlowerPotBlock(PINE_SAPLING);
-    public static final Block PINE_WOOD = new PillarBlock(copyWoodSettings(Blocks.OAK_WOOD));
-    public static final Block AGED_PINE_WOOD = new WoodVariantBlock(PINE_WOOD, AbstractBlock.Settings.copy(PINE_WOOD));
-    public static final Block STRIPPED_PINE_LOG = new PillarBlock(copyWoodSettings(Blocks.STRIPPED_OAK_LOG));
-    public static final Block STRIPPED_PINE_WOOD = new PillarBlock(copyWoodSettings(Blocks.STRIPPED_OAK_WOOD));
-    public static final Block PINE_SNAG_LOG = new PillarBlock(copyWoodSettings(Blocks.STRIPPED_OAK_LOG));
-    public static final Block PINE_SNAG_WOOD = new PillarBlock(copyWoodSettings(Blocks.STRIPPED_OAK_WOOD));
-    public static final Block FIREWEED = new TallFlowerBlock(createFlowerSettings());
-    public static final Block TANSY = new BigFlowerBlock(StatusEffects.SLOW_FALLING, 10, createFlowerSettings());
-    public static final Block POTTED_TANSY = Blocks.createFlowerPotBlock(TANSY);
-    public static final Block FELL_LICHEN = new LichenBlock(createFlowerSettings().mapColor(MapColor.OFF_WHITE).offset(AbstractBlock.OffsetType.XZ));
-    public static final Block POTTED_FELL_LICHEN = Blocks.createFlowerPotBlock(FELL_LICHEN);
-    public static final Block HEATHER = new HeatherBlock(StatusEffects.REGENERATION, 8, createFlowerSettings());
-    public static final Block POTTED_HEATHER = Blocks.createFlowerPotBlock(HEATHER);
+    public static final Block PINE_LEAVES = register("pine_leaves", Blocks.createLeavesSettings(BlockSoundGroup.GRASS), LeavesBlock::new);
+    public static final Block PINE_SAPLING = register("pine_sapling", AbstractBlock.Settings.copy(Blocks.OAK_SAPLING), settings -> new SaplingBlock(new SaplingGenerator("pine", Optional.empty(), Optional.of(WamConfiguredFeatureKeys.PINE_FROM_SAPLING), Optional.empty()), settings));
+    public static final Block POTTED_PINE_SAPLING = register("potted_pine_sapling", Blocks.createFlowerPotSettings(), settings -> new FlowerPotBlock(PINE_SAPLING, settings), null);
+    public static final Block PINE_WOOD = register("pine_wood", copyWoodSettings(Blocks.OAK_WOOD), PillarBlock::new);
+    public static final Block AGED_PINE_WOOD = register("aged_pine_wood", AbstractBlock.Settings.copy(PINE_WOOD)
+        .overrideTranslationKey(PINE_WOOD.getTranslationKey()), PillarBlock::new);
+    public static final Block STRIPPED_PINE_LOG = register("stripped_pine_log", copyWoodSettings(Blocks.STRIPPED_OAK_LOG), PillarBlock::new);
+    public static final Block STRIPPED_PINE_WOOD = register("stripped_pine_wood", copyWoodSettings(Blocks.STRIPPED_OAK_WOOD), PillarBlock::new);
+    public static final Block PINE_SNAG_LOG = register("pine_snag_log", copyWoodSettings(Blocks.STRIPPED_OAK_LOG), PillarBlock::new);
+    public static final Block PINE_SNAG_WOOD = register("pine_snag_wood", copyWoodSettings(Blocks.STRIPPED_OAK_WOOD), PillarBlock::new);;
+    public static final Block FIREWEED = register("fireweed", createFlowerSettings(), TallFlowerBlock::new, TallBlockItem::new);
+    public static final Block TANSY = register("tansy", createFlowerSettings(), settings -> new BigFlowerBlock(StatusEffects.SLOW_FALLING, 10, settings));
+    public static final Block POTTED_TANSY = register("potted_tansy", Blocks.createFlowerPotSettings(), settings -> new FlowerPotBlock(TANSY, settings), null);
+    public static final Block FELL_LICHEN = register("fell_lichen", createFlowerSettings().mapColor(MapColor.OFF_WHITE).offset(AbstractBlock.OffsetType.XZ), LichenBlock::new);
+    public static final Block POTTED_FELL_LICHEN = register("potted_fell_lichen", Blocks.createFlowerPotSettings(), settings -> new FlowerPotBlock(FELL_LICHEN, settings), null);
+    public static final Block HEATHER = register("heather", createFlowerSettings(), settings -> new HeatherBlock(StatusEffects.REGENERATION, 8, settings));
+    public static final Block POTTED_HEATHER = register("potted_fell_heather", Blocks.createFlowerPotSettings(), settings -> new FlowerPotBlock(HEATHER, settings), null);
 
     private WamBlocks() {
     }
 
     public static void init() {
-        register("pine_log", PINE_LOG);
-        register("aged_pine_log", AGED_PINE_LOG);
-        register("pine_leaves", PINE_LEAVES);
-        register("pine_sapling", PINE_SAPLING);
-        register("potted_pine_sapling", POTTED_PINE_SAPLING, (Item) null);
-        register("pine_wood", PINE_WOOD);
-        register("aged_pine_wood", AGED_PINE_WOOD);
-        register("stripped_pine_log", STRIPPED_PINE_LOG);
-        register("stripped_pine_wood", STRIPPED_PINE_WOOD);
-        register("pine_snag_log", PINE_SNAG_LOG);
-        register("pine_snag_wood", PINE_SNAG_WOOD);
-        register("fireweed", FIREWEED, new TallBlockItem(FIREWEED, new Item.Settings()));
-        register("tansy", TANSY);
-        register("potted_tansy", POTTED_TANSY, (Item) null);
-        register("fell_lichen", FELL_LICHEN);
-        register("potted_fell_lichen", POTTED_FELL_LICHEN, (Item) null);
-        register("heather", HEATHER);
-        register("potted_heather", POTTED_HEATHER, (Item) null);
-
         FlammableBlockRegistry fbr = FlammableBlockRegistry.getDefaultInstance();
         fbr.add(PINE_LOG, 5, 5);
         fbr.add(AGED_PINE_LOG, 5, 5);
@@ -77,33 +60,36 @@ public final class WamBlocks {
         fbr.add(PINE_SNAG_WOOD, 5, 5);
         fbr.add(PINE_LEAVES, 5, 20);
 
-        FuelRegistry fr = FuelRegistry.INSTANCE;
-
         StrippableBlockRegistry.register(PINE_LOG, STRIPPED_PINE_LOG);
         StrippableBlockRegistry.register(AGED_PINE_LOG, STRIPPED_PINE_LOG);
         StrippableBlockRegistry.register(PINE_WOOD, STRIPPED_PINE_WOOD);
         StrippableBlockRegistry.register(AGED_PINE_WOOD, STRIPPED_PINE_WOOD);
     }
 
-    private static void register(String id, Block block) {
-        register(id, block, new BlockItem(block, new Item.Settings()));
+    private static Block register(String id, Function<AbstractBlock.Settings, Block> block) {
+        return register(id, block, BlockItem::new);
     }
 
-    private static void register(String id, Block block, @Nullable Item item) {
-        Registry.register(Registries.BLOCK, WoodsAndMires.id(id), block);
-
-        if (item != null) {
-            Registry.register(Registries.ITEM, WoodsAndMires.id(id), item);
-        }
+    private static Block register(String id, Function<AbstractBlock.Settings, Block> block, @Nullable BiFunction<Block, Item.Settings, Item> item) {
+        return register(id, AbstractBlock.Settings.create(), block, item);
     }
 
-    private static void register(String id, Block block, Supplier<@Nullable Item> itemSupplier) {
-        Registry.register(Registries.BLOCK, WoodsAndMires.id(id), block);
+    private static Block register(String id, AbstractBlock.Settings settings, Function<AbstractBlock.Settings, Block> block) {
+        return register(id, settings, block, BlockItem::new);
+    }
 
-        @Nullable Item item = itemSupplier.get();
+    private static Block register(String id, AbstractBlock.Settings settings, Function<AbstractBlock.Settings, Block> block, @Nullable BiFunction<Block, Item.Settings, Item> item) {
+        var val = block.apply(settings.registryKey(RegistryKey.of(RegistryKeys.BLOCK, WoodsAndMires.id(id))));
+        Registry.register(Registries.BLOCK, WoodsAndMires.id(id), val);
+
         if (item != null) {
-            Registry.register(Registries.ITEM, WoodsAndMires.id(id), item);
+            Registry.register(Registries.ITEM, WoodsAndMires.id(id), item.apply(val, new Item.Settings()
+                .registryKey(RegistryKey.of(RegistryKeys.ITEM, WoodsAndMires.id(id)))
+                .translationKey(val.getTranslationKey())
+            ));
         }
+
+        return val;
     }
 
     private static AbstractBlock.Settings copyWoodSettings(Block block) {

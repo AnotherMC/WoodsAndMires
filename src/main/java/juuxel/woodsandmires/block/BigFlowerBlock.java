@@ -18,7 +18,7 @@ public class BigFlowerBlock extends FlowerBlock {
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        Vec3d modelOffset = state.getModelOffset(world, pos);
+        Vec3d modelOffset = state.getModelOffset(pos);
         return VoxelShapes.fullCube().offset(modelOffset.x, modelOffset.y, modelOffset.z);
     }
 }

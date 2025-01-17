@@ -1,7 +1,6 @@
 accessWidener v1 named
 
 # Items
-extendable method net/minecraft/item/BoatItem createEntity (Lnet/minecraft/world/World;Lnet/minecraft/util/hit/HitResult;Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/player/PlayerEntity;)Lnet/minecraft/entity/vehicle/BoatEntity;
 # World gen
 accessible field net/minecraft/world/biome/OverworldBiomeCreator DEFAULT_WATER_COLOR I
 accessible field net/minecraft/world/biome/OverworldBiomeCreator DEFAULT_WATER_FOG_COLOR I
@@ -16,5 +15,3 @@ accessible method net/minecraft/world/gen/feature/VegetationConfiguredFeatures c
 accessible field net/minecraft/world/biome/GenerationSettings$Builder indexedFeaturesList Ljava/util/List;
 
 # Rendering
-accessible field net/minecraft/client/render/entity/BoatEntityRenderer texturesAndModels Ljava/util/Map;
-mutable field net/minecraft/client/render/entity/BoatEntityRenderer texturesAndModels Ljava/util/Map;

@@ -21,7 +21,7 @@ public abstract class EncoderBasedDataProvider<T> extends FabricDynamicRegistryP
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup registries, Entries entries) {
-        var wrapper = registries.getWrapperOrThrow(registryKey);
+        var wrapper = registries.getOrThrow(registryKey);
         getEntries().forEach(key -> entries.add(wrapper, key));
     }
 }

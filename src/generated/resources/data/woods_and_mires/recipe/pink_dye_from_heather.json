@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "pink_dye",
   "ingredients": [
-    {
-      "item": "woods_and_mires:heather"
-    }
+    "woods_and_mires:heather"
   ],
   "result": {
     "count": 1,
